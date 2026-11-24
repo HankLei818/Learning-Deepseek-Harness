@@ -38,4 +38,4 @@ PY
 
 </details>
 
-[上一课 · 流式输出](06-streaming-replies.md) · [下一课 · 模型切换](08-model-switch.md) · [返回首页](../README.md)
+[上一课 · 流式输出](06-streaming-replies.md) · [下一课 · 模型切换](08-model-switch.md) · [课程目录](README.md)

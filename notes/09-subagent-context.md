@@ -37,4 +37,4 @@ spawn 的输出是 `False` 和 `agent-message`，第一条输入来自父 Agent 
 
 </details>
 
-[上一课 · 切换模型](08-model-switch.md) · [下一课 · 多 Agent 如何协作](10-agent-teamwork.md) · [返回首页](../README.md)
+[上一课 · 切换模型](08-model-switch.md) · [下一课 · 多 Agent 如何协作](10-agent-teamwork.md) · [课程目录](README.md)

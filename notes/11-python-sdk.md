@@ -28,4 +28,4 @@ Windows PowerShell 下，第一行用 `py -3 -m venv .venv`，后两行把 `.ven
 
 试试把提示词改成“请回复 HELLO”。输出仍是 `SDK_OK`，因为随课端点固定返回这段文字。下一课会让它发起工具调用，沿相同的 SDK 链路把执行结果带回来。[本地模型端点](../labs/local_model.py)
 
-[上一课 · 多个 Agent 怎么分工](10-agent-teamwork.md) · [下一课 · 写一个工具插件](12-tool-plugin.md) · [返回首页](../README.md)
+[上一课 · 多个 Agent 怎么分工](10-agent-teamwork.md) · [下一课 · 写一个工具插件](12-tool-plugin.md) · [课程目录](README.md)

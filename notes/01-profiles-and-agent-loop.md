@@ -31,4 +31,4 @@ git grep -nE 'id: (agent-loop|webserver|headless-runner)$' "$ref" -- \
 
 </details>
 
-[下一课 · 追踪一次工具调用](02-turn-and-tools.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)
+[下一课 · 追踪一次工具调用](02-turn-and-tools.md) · [框架地图](../guide/architecture.md) · [课程目录](README.md)

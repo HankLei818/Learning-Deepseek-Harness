@@ -43,4 +43,4 @@ sequenceDiagram
 | 把一部分工作交给另一个 Agent | `spawn` 让子 Agent 从新会话开始，`fork` 让它继承当前对话。团队插件可以提供共享任务板，Workflow 插件可以用脚本安排多次委派。[委派与工作流配置](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/bundle/base/cordis.patch.yml#L374) |
 | 接入已有的外部工具 | MCP 插件把外部服务提供的工具注册给 Agent，后续仍走同一条调用流程。[各类插件的用途](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/README.zh.md#L29) |
 
-[第一课 · 应用如何组装](../notes/01-profiles-and-agent-loop.md) · [第二课 · 跟踪一次工具调用](../notes/02-turn-and-tools.md) · [返回首页](../README.md)
+[第一课 · 应用如何组装](../notes/01-profiles-and-agent-loop.md) · [第二课 · 跟踪一次工具调用](../notes/02-turn-and-tools.md) · [按组件读源码](../components/README.md) · [课程目录](../notes/README.md) · [返回首页](../README.md)

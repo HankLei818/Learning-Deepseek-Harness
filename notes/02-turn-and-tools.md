@@ -37,4 +37,4 @@ python3 labs/turn.py
 
 实验摘自上游 `fs-read` 录制，保留了原始行号和本课用到的字段。[随课数据](../labs/fs-read.jsonl) · [上游录制说明](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/snapshots/session/fs-read/snapshot.yml#L5) · [数据的 MIT 许可](../labs/LICENSE.upstream)
 
-[上一课 · 应用如何组装](01-profiles-and-agent-loop.md) · [下一课 · 上下文压缩](03-context-compaction.md) · [返回首页](../README.md)
+[上一课 · 应用如何组装](01-profiles-and-agent-loop.md) · [下一课 · 上下文压缩](03-context-compaction.md) · [课程目录](README.md)

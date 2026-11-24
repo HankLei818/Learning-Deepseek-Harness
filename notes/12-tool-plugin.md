@@ -40,4 +40,4 @@ for (const point of args.text) count += 1
 return count
 ```
 
-[上一课 · 用 Python SDK 发起任务](11-python-sdk.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)
+[上一课 · 用 Python SDK 发起任务](11-python-sdk.md) · [接着读工具执行原理](../components/tools.md) · [课程目录](README.md)

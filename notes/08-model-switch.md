@@ -42,4 +42,4 @@ PY
 
 例子里两次请求的提供方都是 `deepseek-official`。框架先按提供方找到**适配器**，再把模型名交给它。适配器负责把框架的请求转换成该服务能接收的格式，并把响应交回框架。已有适配器支持的服务可以直接选。需要支持一种新的接口时，就通过插件注册相应的适配器。AgentLoop 仍按原流程组织对话、调用工具。[按提供方选适配器](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/llm/llm/src/index.ts#L942-L952) · [注册适配器](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/llm/llm/src/index.ts#L377-L399)
 
-[上一课 · 恢复会话](07-session-resume.md) · [下一课 · 子 Agent 的上下文](09-subagent-context.md) · [返回首页](../README.md)
+[上一课 · 恢复会话](07-session-resume.md) · [下一课 · 子 Agent 的上下文](09-subagent-context.md) · [课程目录](README.md)

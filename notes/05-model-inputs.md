@@ -32,4 +32,4 @@ python3 labs/request_inputs.py
 
 这个实验根据会话记录还原框架交给模型适配器的消息顺序。上游还用测试直接捕获适配器收到的请求，逐项核对消息列表和工具说明。[上游请求重建测试](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/tests/request-reconstruction.spec.ts#L872-L890)
 
-[上一课 · 工具的写入权限](04-write-permission.md) · [下一课 · 流式输出](06-streaming-replies.md) · [第二课 · 工具调用经过](02-turn-and-tools.md) · [返回首页](../README.md)
+[上一课 · 工具的写入权限](04-write-permission.md) · [下一课 · 流式输出](06-streaming-replies.md) · [第二课 · 工具调用经过](02-turn-and-tools.md) · [课程目录](README.md)

@@ -47,4 +47,4 @@ PY
 
 </details>
 
-[上一课 · 子 Agent 一开始知道什么](09-subagent-context.md) · [下一课 · 用 Python SDK 提交任务](11-python-sdk.md) · [返回首页](../README.md)
+[上一课 · 子 Agent 一开始知道什么](09-subagent-context.md) · [下一课 · 用 Python SDK 提交任务](11-python-sdk.md) · [课程目录](README.md)
