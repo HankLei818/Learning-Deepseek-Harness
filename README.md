@@ -29,7 +29,7 @@ python3 labs/turn.py
 
 ## 入门版 · 十二课学习路线
 
-想先看全局，可以从[框架地图](guide/architecture.md)开始。前十课可以直接在浏览器里读。第 11、12 课用 Python 在本机启动真正的 Harness，用本地测试端点代替在线模型。已经读过入门版，可以直接看[深度版 · 组件原理路线](guide/deep-dive-roadmap.md)。
+想先看全局，可以从[框架地图](guide/architecture.md)开始。前十课可以直接在浏览器里读。第 11、12 课用 Python 在本机启动真正的 Harness，用本地测试端点代替在线模型。已经读过入门版，可以直接看[核心组件原理](guide/deep-dive-roadmap.md)。
 
 ### 第一部分 · 入门
 
@@ -59,6 +59,10 @@ python3 labs/turn.py
 
 ## 深度版 · 组件原理
 
-写好一个工具后，如果全局和某个 Agent 都注册了这个名字，调用时选哪一个？深度版从这里开始，规划 6 个单元、24 讲，依次研究插件装配、对话执行、会话存储、工具运行、多任务协作，以及网页和 SDK 接入。每讲都列出源码、测试和一个可以自己验证的现象。[查看深度课程规划](guide/deep-dive-roadmap.md)
+- [Cordis · 万物皆插件是怎样实现的](guide/plugin-system.md) — 从 `read` 的实际装配追到依赖注入、作用域和卸载顺序。
+- [AgentLoop · 谁决定要不要再问一次模型](guide/agent-loop.md) — 用一次读文件区分回合、步骤和重试，再看中途追加指令会发生什么。
+- [Session 与记忆 · 一条信息怎样被记住、压缩和召回](guide/session-memory.md) — 跟踪同一句话怎样留在原会话，以及一个新会话怎样再次拿到它。
+
+[查看核心组件索引与后续选题](guide/deep-dive-roadmap.md)
 
 [教程对应的源码版本](https://github.com/deepseek-ai/deepseek-harness/commit/4b399c39a6d1479cd84ca591b4d7c88e24d38a96)
