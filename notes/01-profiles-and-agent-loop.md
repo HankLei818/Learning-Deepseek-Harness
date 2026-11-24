@@ -34,3 +34,5 @@ git grep -nE 'id: (agent-loop|webserver|headless-runner)$' "$ref" -- \
 ## 接着追一个回合
 
 共享的 AgentLoop 收到输入后，会记录 `turn/start`。试着沿着源码找到第一次 `step/start`、实际发送的模型历史，以及模型要求调用工具后的分支。下节课用这条路径解释为什么“一条用户消息”可以触发多次模型请求。[回合起点](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L332) · [请求使用的历史](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L718) · [工具调用分支](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L576)
+
+[下一课 · 追踪一次工具调用](02-turn-and-tools.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)
