@@ -37,8 +37,9 @@ python3 labs/turn.py
 | 长对话被压缩成摘要后，还能找到原话吗？ | [第三课 · 上下文压缩](notes/03-context-compaction.md) |
 | `write` 工具可用，为什么文件仍然写不进去？ | [第四课 · 工具的写入权限](notes/04-write-permission.md) |
 | 工具读完文件，模型下一次请求会多看到什么？ | [第五课 · 模型请求的内容](notes/05-model-inputs.md) |
+| 回复还没写完，网页怎么已经显示了文字？ | [第六课 · 流式输出](notes/06-streaming-replies.md) |
 
-下一课会跟踪一条正在生成的回复，看文字怎样逐段出现在屏幕上。
+下一课会从重新打开聊天窗口开始，看网页如何找回历史消息、接上新回复。
 
 每课回答一个问题，用真实记录或源码说明，再给一个能自己核对的结果。如果哪一段需要猜，欢迎把原句和你的疑问贴出来。[提问或反馈](https://github.com/HankLei818/Learning-Deepseek-Harness/issues/new)
 

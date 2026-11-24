@@ -1,0 +1,23 @@
+{
+  "type": "assistant/message",
+  "data": {
+    "message": {
+      "content": [
+        {
+          "type": "text",
+          "text": "DONE"
+        }
+      ]
+    },
+    "stream": [
+      {
+        "type": "text-chunks",
+        "index": 0,
+        "texts": [
+          "D",
+          "ONE"
+        ]
+      }
+    ]
+  }
+}

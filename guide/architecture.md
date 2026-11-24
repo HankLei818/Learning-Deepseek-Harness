@@ -31,7 +31,7 @@ sequenceDiagram
 
 默认配置把 Session 保存为 JSONL 文件，每行一条记录。网页刷新时，服务端先监听新事件，再读取已有记录。浏览器由此可以先显示历史，再接上读取历史期间到达的新内容。[存储配置](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/bundle/base/cordis.patch.yml#L142) · [刷新时如何订阅](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/api/session-controller/src/web/controller.ts#L32)
 
-回复生成时，网页可以先显示陆续收到的文字。回复结束后，框架把完整消息记入日志，供刷新后读取。[回复如何保存](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L564)
+回复生成时，网页可以先显示陆续收到的文字。回复结束后，框架把完整消息记入日志，供刷新后读取。[回复如何保存](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L564) · [第六课的片段回放](../notes/06-streaming-replies.md)
 
 同一份日志也决定模型下次会看到什么。会话太长时，框架把摘要追加到日志，标出它替代的旧消息。模型下次读取摘要，人仍能回看原文。[第三课 · 上下文压缩](../notes/03-context-compaction.md)
 
