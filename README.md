@@ -35,8 +35,9 @@ python3 labs/turn.py
 | 网页版和无界面模式为什么能共用同一套代码处理任务？ | [第一课 · 应用如何启动](notes/01-profiles-and-agent-loop.md) |
 | 模型发出读文件请求后，怎样判断文件已经读到了？ | [第二课 · 跟踪一次工具调用](notes/02-turn-and-tools.md) |
 | 长对话被压缩成摘要后，还能找到原话吗？ | [第三课 · 上下文压缩](notes/03-context-compaction.md) |
+| `write` 工具可用，为什么文件仍然写不进去？ | [第四课 · 工具的写入权限](notes/04-write-permission.md) |
 
-接下来会继续研究工具权限、关闭窗口后如何恢复会话，以及如何给助手添加一个工具。
+下一课会顺着一次请求，看框架把哪些对话、提示和工具说明发给模型。
 
 每课回答一个问题，用真实记录或源码说明，再给一个能自己核对的结果。如果哪一段需要猜，欢迎把原句和你的疑问贴出来。[提问或反馈](https://github.com/HankLei818/Learning-Deepseek-Harness/issues/new)
 

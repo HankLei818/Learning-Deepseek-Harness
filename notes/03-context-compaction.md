@@ -51,4 +51,4 @@ PY
 
 </details>
 
-[上一课 · 追踪一次工具调用](02-turn-and-tools.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)
+[上一课 · 追踪一次工具调用](02-turn-and-tools.md) · [下一课 · 工具的写入权限](04-write-permission.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)

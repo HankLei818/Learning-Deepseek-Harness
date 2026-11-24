@@ -25,7 +25,7 @@ sequenceDiagram
     M-->>A: 确认已写入
 ```
 
-模型能选择 `write`，只说明这个工具可用。实际执行时，文件服务还会检查目标路径是否允许写入。如果权限检查失败，下一步模型读到的是失败结果，也就可以向用户解释原因。[循环如何分派工具](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L576) · [写入前的权限检查](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/fs/fs-sandbox/src/index.ts#L80)
+模型能选择 `write`，只说明这个工具可用。实际执行时，文件服务还会检查目标路径是否允许写入。如果权限检查失败，下一步模型读到的是失败结果，也就可以向用户解释原因。[循环如何分派工具](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L576) · [写入前的权限检查](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/fs/fs-sandbox/src/index.ts#L80) · [第四课的两次写入](../notes/04-write-permission.md)
 
 ## 刷新页面后，会话怎么接上？
 
