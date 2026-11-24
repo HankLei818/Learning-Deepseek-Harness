@@ -1,16 +1,22 @@
-# 第一课 · Web 和 Headless 如何共用同一个 AgentLoop
+# 第一课 · 网页和命令行怎样共用一套执行逻辑？
 
-运行 `dsh web` 会得到浏览器界面，运行 `dsh headless` 可以处理一次性任务。两者共享基础 bundle 中的 AgentLoop；启动时选中的第二个 bundle，决定这套运行时对外提供 Web 服务还是一次性任务入口。[内置 profile 清单](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/util/official-bundles/src/bundles.ts#L10)
+`dsh web` 启动网页，`dsh headless` 在命令行处理一次任务。两种模式都加载同一个 AgentLoop 插件，由它请求模型、调用工具，直到这一轮工作结束。
 
-## 沿启动配置读三步
+## 从启动配置里找答案
 
-1. **找到应用组合。** `PROFILE_TEMPLATES` 中，`web` 选择 `dsh-base` 和 `dsh-web-app`，`headless` 选择 `dsh-base` 和 `dsh-headless`。这里也有一个例外：`sdk-minimal` 只选自己的 bundle。[Profile 定义](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/util/official-bundles/src/bundles.ts#L10)
-2. **找到实际插件。** 在三个 bundle 的补丁文件里搜索注册项。共享的 `agent-loop` 出现在 base；`webserver` 和 `headless-runner` 分别出现在 Web 和 Headless 的配置中。[基础配置](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/bundle/base/cordis.patch.yml#L546) · [Web 配置](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/bundle/web-app/cordis.patch.yml#L194) · [Headless 配置](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/bundle/headless/cordis.patch.yml#L19)
-3. **找到自己的改动会在哪里生效。** 启动器按顺序叠加 bundle、profile 自己的补丁、Harness home 的补丁和命令行 `--patch`。上游测试用两个 bundle 和一层用户配置连续修改同一行，可以直接对照最终值。[配置顺序](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/docs/architecture.zh.md#L25) · [上游测试](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/boot/app-boot/tests/profile.spec.ts#L304)
+每种启动模式都有一份配置（**profile**），列出要加载哪些插件组合（**bundle**）。[默认启动配置](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/util/official-bundles/src/bundles.ts#L10)
 
-## 五分钟源码实验
+| 启动模式 | 共用的包 | 各自多加载的包 |
+| --- | --- | --- |
+| `web` | `dsh-base`，包含 `agent-loop` | `dsh-web-app`，启动网页服务 |
+| `headless` | `dsh-base`，包含 `agent-loop` | `dsh-headless`，接收一次性任务 |
 
-在含有下列提交的**上游源码仓库**根目录执行。命令直接读取 Git 对象，在其他分支也可以运行。上游仓库地址见 [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)。
+想看网页怎样接入，就读 Web 包。想看模型何时调用工具，就读两者共用的循环。[网页入口](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/bundle/web-app/cordis.patch.yml#L194) · [命令行任务入口](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/bundle/headless/cordis.patch.yml#L19) · [共享循环的注册位置](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/bundle/base/cordis.patch.yml#L546)
+
+<details>
+<summary>用 Git 找到这三个插件</summary>
+
+在 **DeepSeek Harness 上游源码仓库**根目录运行。命令读取教程指定的提交，无需安装项目依赖。[获取上游源码](https://github.com/deepseek-ai/deepseek-harness)
 
 ```sh
 ref=4b399c39a6d1479cd84ca591b4d7c88e24d38a96
@@ -21,18 +27,8 @@ git grep -nE 'id: (agent-loop|webserver|headless-runner)$' "$ref" -- \
   packages/bundle/headless/cordis.patch.yml
 ```
 
-第二条 Git 命令在该提交应命中三处：
+第一条 Git 命令会列出各模式加载的包。第二条应命中这三处注册位置，即 `base` 第 546 行的 `agent-loop`、`headless` 第 19 行的 `headless-runner`、`web-app` 第 194 行的 `webserver`。
 
-| 配置文件 | 行 | 注册项 |
-| --- | ---: | --- |
-| `packages/bundle/base/cordis.patch.yml` | 546 | `agent-loop` |
-| `packages/bundle/headless/cordis.patch.yml` | 19 | `headless-runner` |
-| `packages/bundle/web-app/cordis.patch.yml` | 194 | `webserver` |
-
-这个实验核对的是发行版的默认配置。如果要解释某台机器为什么多加载了一个插件，还要检查该机器的补丁。准备好上游项目依赖后，可以用 `pnpm dsh --profile web --dump-config` 查看本机合成的配置。[启动与配置说明](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/docs/architecture.zh.md#L25)
-
-## 接着追一个回合
-
-共享的 AgentLoop 收到输入后，会记录 `turn/start`。试着沿着源码找到第一次 `step/start`、实际发送的模型历史，以及模型要求调用工具后的分支。下节课用这条路径解释为什么“一条用户消息”可以触发多次模型请求。[回合起点](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L332) · [请求使用的历史](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L718) · [工具调用分支](https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/packages/core/agent-loop/src/agent.ts#L576)
+</details>
 
 [下一课 · 追踪一次工具调用](02-turn-and-tools.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)
