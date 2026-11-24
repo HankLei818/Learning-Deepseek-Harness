@@ -35,4 +35,4 @@ python3 labs/stream_reply.py
 
 </details>
 
-[上一课 · 模型请求的内容](05-model-inputs.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)
+[上一课 · 模型请求的内容](05-model-inputs.md) · [下一课 · 恢复会话](07-session-resume.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)

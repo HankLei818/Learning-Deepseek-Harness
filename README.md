@@ -27,19 +27,33 @@ python3 labs/turn.py
 
 最后一行应显示 `1 个回合 · 2 个步骤 · 1 次工具调用 · 1 个工具结果`。[第二课解释这些数字](notes/02-turn-and-tools.md)
 
-## 按问题选一课
+## 十二课学习路线
 
-| 你想知道什么？ | 从这里读 |
-| --- | --- |
-| 从用户发出指令到文件写入磁盘，谁负责哪一步？ | [框架地图](guide/architecture.md) |
-| 网页版和无界面模式为什么能共用同一套代码处理任务？ | [第一课 · 应用如何启动](notes/01-profiles-and-agent-loop.md) |
-| 模型发出读文件请求后，怎样判断文件已经读到了？ | [第二课 · 跟踪一次工具调用](notes/02-turn-and-tools.md) |
-| 长对话被压缩成摘要后，还能找到原话吗？ | [第三课 · 上下文压缩](notes/03-context-compaction.md) |
-| `write` 工具可用，为什么文件仍然写不进去？ | [第四课 · 工具的写入权限](notes/04-write-permission.md) |
-| 工具读完文件，模型下一次请求会多看到什么？ | [第五课 · 模型请求的内容](notes/05-model-inputs.md) |
-| 回复还没写完，网页怎么已经显示了文字？ | [第六课 · 流式输出](notes/06-streaming-replies.md) |
+想先看全局，可以从[框架地图](guide/architecture.md)开始。前十课可以直接在浏览器里读。第 11、12 课用 Python 在本机启动真正的 Harness，用本地测试端点代替在线模型。
 
-下一课会从重新打开聊天窗口开始，看网页如何找回历史消息、接上新回复。
+### 第一部分 · 入门
+
+1. [应用如何启动](notes/01-profiles-and-agent-loop.md) — 网页和命令行怎样共用一套执行逻辑？
+2. [跟踪一次工具调用](notes/02-turn-and-tools.md) — 模型怎样知道文件已经读到了？
+3. [上下文压缩](notes/03-context-compaction.md) — 对话压成摘要后，还能找到原话吗？
+
+### 第二部分 · 执行
+
+4. [工具的写入权限](notes/04-write-permission.md) — 为什么模型能请求写文件，这次写入却被拒绝？
+5. [模型请求的内容](notes/05-model-inputs.md) — 工具读完文件，模型下一次多看到什么？
+6. [流式输出](notes/06-streaming-replies.md) — 回复还没写完，文字怎样出现在屏幕上？
+
+### 第三部分 · 会话与协作
+
+7. [恢复会话](notes/07-session-resume.md) — 重新打开窗口后，旧消息和新回复怎么接上？
+8. [切换模型](notes/08-model-switch.md) — 同一项任务能让两个模型前后接手吗？
+9. [子 Agent 的上下文](notes/09-subagent-context.md) — 子 Agent 能记得父会话里提过的暗号吗？
+10. [团队如何交付](notes/10-agent-teamwork.md) — 任务板显示“已完成”时，去哪里找具体答复？
+
+### 第四部分 · 动手实践
+
+11. [用 Python SDK 跑一次任务](notes/11-python-sdk.md) — 从自己的程序发送消息，取回最终答复。
+12. [给助手添加一个工具](notes/12-tool-plugin.md) — 写一个文本计数工具，亲眼看到它被调用、返回结果。
 
 每课回答一个问题，用真实记录或源码说明，再给一个能自己核对的结果。如果哪一段需要猜，欢迎把原句和你的疑问贴出来。[提问或反馈](https://github.com/HankLei818/Learning-Deepseek-Harness/issues/new)
 
