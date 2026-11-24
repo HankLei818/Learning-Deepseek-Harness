@@ -61,4 +61,4 @@ PY
 
 </details>
 
-[上一课 · 上下文压缩](03-context-compaction.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)
+[上一课 · 上下文压缩](03-context-compaction.md) · [下一课 · 模型请求的内容](05-model-inputs.md) · [框架地图](../guide/architecture.md) · [返回首页](../README.md)
