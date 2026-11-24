@@ -27,9 +27,9 @@ python3 labs/turn.py
 
 最后一行应显示 `1 个回合 · 2 个步骤 · 1 次工具调用 · 1 个工具结果`。[第二课解释这些数字](notes/02-turn-and-tools.md)
 
-## 十二课学习路线
+## 入门版 · 十二课学习路线
 
-想先看全局，可以从[框架地图](guide/architecture.md)开始。前十课可以直接在浏览器里读。第 11、12 课用 Python 在本机启动真正的 Harness，用本地测试端点代替在线模型。
+想先看全局，可以从[框架地图](guide/architecture.md)开始。前十课可以直接在浏览器里读。第 11、12 课用 Python 在本机启动真正的 Harness，用本地测试端点代替在线模型。已经读过入门版，可以直接看[深度版 · 组件原理路线](guide/deep-dive-roadmap.md)。
 
 ### 第一部分 · 入门
 
@@ -56,5 +56,9 @@ python3 labs/turn.py
 12. [给助手添加一个工具](notes/12-tool-plugin.md) — 写一个文本计数工具，亲眼看到它被调用、返回结果。
 
 每课回答一个问题，用真实记录或源码说明，再给一个能自己核对的结果。如果哪一段需要猜，欢迎把原句和你的疑问贴出来。[提问或反馈](https://github.com/HankLei818/Learning-Deepseek-Harness/issues/new)
+
+## 深度版 · 组件原理
+
+写好一个工具后，如果全局和某个 Agent 都注册了这个名字，调用时选哪一个？深度版从这里开始，规划 6 个单元、24 讲，依次研究插件装配、对话执行、会话存储、工具运行、多任务协作，以及网页和 SDK 接入。每讲都列出源码、测试和一个可以自己验证的现象。[查看深度课程规划](guide/deep-dive-roadmap.md)
 
 [教程对应的源码版本](https://github.com/deepseek-ai/deepseek-harness/commit/4b399c39a6d1479cd84ca591b4d7c88e24d38a96)
